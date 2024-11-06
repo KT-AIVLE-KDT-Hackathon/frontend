@@ -1,0 +1,195 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@font-face {
+  font-family: "AbrilFatface-Regular";
+  font-weight: normal;
+  src: url("./fonts/AbrilFatface-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Danjo-bold-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Danjo-bold-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy-8ExtraBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* .App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+
+.App-link {
+  color: #61dafb;
+}
+
+/* 페이지 전체를 최소한 뷰포트 높이만큼 차지하도록 설정 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App{
+  /* 뷰포트 전체를 차지하게 하기 위한 설정 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* 최소 높이를 뷰포트 전체로 설정 */
+}
+
+main {
+  flex: 1;  /* 메인 콘텐츠가 남은 공간을 채우도록 설정 */
+}
+
+.white-nav{
+  font-family: Paperlogy-8ExtraBold, sans-serif;
+  display: flex;
+  border-bottom: #000 solid;
+}
+
+.nav-btn{
+  color: 'black';
+  font-size: 1.5rem;
+  float: left;
+  margin: 1%;
+  
+}
+
+.banner{
+  border-bottom: 5px solid black;
+  height: 85vh;
+  width: 100%;
+  font-family: AbrilFatface-Regular, sans-serif;
+  font-size: 9vw;
+  font-weight: bold;
+  position: relative; /* 자식 요소가 absolute일 때 이 요소를 기준으로 배치 */
+  z-index: 1;
+}
+.banner .left{
+  float: left;
+  background-color: black;
+  color: white;
+  height:85vh;
+  width:50%;
+  font-size: 10vw;
+}
+.banner .right{
+  float:right;
+  background-color: white;
+  height:85vh;
+  width:50%;
+  padding-top:0%;
+  font-size: 10vw;
+}
+#image{
+  width: 40vw;
+  position: absolute; /* 부모 요소인 banner 위에 겹쳐서 배치 */
+  top: 50%; /* 부모의 가운데 배치 (위치 조정 가능) */
+  left: 49%; /* 부모의 가운데 배치 */
+  transform: translate(-50%, -50%); /* 가운데 정렬을 위해 translate 사용 */
+  z-index: 2; 
+}
+.leftText{
+  font-family: AbrilFatface-Regular, sans-serif;
+  font-size: 3.1vw;
+  z-index: 2;
+  position: absolute;
+  color: white;
+  top: 80%; /* 부모의 가운데 배치 (위치 조정 가능) */
+  left: 2%;
+}
+.rightText{
+  font-family: Danjo-bold-Regular, sans-serif;
+  font-size: 2.5vw;
+  z-index: 2;
+  position: absolute;
+  top: 83%; /* 부모의 가운데 배치 (위치 조정 가능) */
+  left: 50.3%;
+}
+.infoText{
+  font-family: Danjo-bold-Regular, sans-serif;
+  font-size: 1.8vw;
+}
+.custom-btn {
+  font-family: Danjo-bold-Regular, sans-serif;
+  font-size: 1.7vw;
+  width:20vw;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+.btn-16 {
+  border: none;
+  color: #000;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  color: #000;
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-16:active {
+  top: 2px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
