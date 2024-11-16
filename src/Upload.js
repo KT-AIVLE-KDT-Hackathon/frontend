@@ -23,6 +23,7 @@ function Upload() {
     setSelectedFile(event.target.files[0]);
     setProcessedImage(null);  // 새 이미지 선택 시 처리된 이미지 초기화
   };
+  
 
   // 서버로 이미지 전송 및 처리된 이미지 받기
   const handleUpload = async () => {
@@ -60,6 +61,7 @@ function Upload() {
       <div className="uploader">
         {/* 드래그 앤 드롭 및 파일 선택기 영역 */}
         <div {...getRootProps()} className="dropzone" style={{cursor: 'pointer'}}>
+          <h3>입력 이미지:</h3>
           <input {...getInputProps()} />
           {!selectedFile && (
             isDragActive ? (
@@ -70,6 +72,7 @@ function Upload() {
           )}
           {selectedFile && (
             <div className="preview">
+              
               <img
                 src={URL.createObjectURL(selectedFile)}
                 alt="Selected"
@@ -107,7 +110,21 @@ function Upload() {
             <p>이미지가 아직 변환되지 않았습니다.</p>
           )}
         </div>
-        <button className="uploadButton">이미지 다운로드</button>
+        <button 
+          className="uploadButton"
+          onClick={() => {
+            if (processedImage) {
+              const link = document.createElement('a');
+              link.href = processedImage; // Blob URL 사용
+              link.download = 'processed_image.png'; // 다운로드될 파일 이름 지정
+              link.click();
+            } else {
+              alert('다운로드할 이미지가 없습니다.');
+            }
+          }}
+        >
+          이미지 다운로드
+        </button>
       </div>
     </div>
   );
